@@ -4,24 +4,25 @@
     <div id="error_explanation">
       <h2>
         <%= pluralize(@article.errors.count, "error") %> prohibited
-        this article from being saved:
+        this organization from being saved:
       </h2>
-      <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+      <%= render :partial => 'shared/flash_messages' %>
     </div>
   <% end %>
- 
+  
   <p>
-    <%= form.label :title %><br>
+    <%= form.label :'Organization Name' %><br>
     <%= form.text_field :title %>
   </p>
  
   <p>
-    <%= form.label :text %><br>
+    <%= form.label :'Mission Statement' %><br>
     <%= form.text_area :text %>
+  </p>
+
+  <p>
+    <%= form.label :'Website URL' %><br>
+    <%= form.text_area :url %>
   </p>
  
   <p>

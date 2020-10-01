@@ -23,7 +23,8 @@ class ArticlesController < ApplicationController
         if @article.save
             redirect_to @article
         else
-            render 'new'
+          flash.now[:messages] = @article.errors.full_messages
+          render 'new'
         end
     end
 
@@ -46,6 +47,6 @@ class ArticlesController < ApplicationController
        
     private
         def article_params
-          params.require(:article).permit(:title, :text)
+          params.require(:article).permit(:title, :text, :url)
         end
 end
