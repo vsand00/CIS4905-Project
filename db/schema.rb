@@ -10,9 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_164521) do
+ActiveRecord::Schema.define(version: 2020_10_13_160830) do
 
-  create_table "articles", force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
+    t.string "commenter"
+    t.string "body"
+    t.string "text"
+    t.integer "organization_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organization_id"], name: "index_comments_on_organization_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.string "date"
+    t.text "location"
+    t.integer "organization_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organization_id"], name: "index_events_on_organization_id"
+  end
+
+  create_table "organizations", force: :cascade do |t|
     t.string "title"
     t.text "text"
     t.datetime "created_at", precision: 6, null: false
@@ -20,26 +40,13 @@ ActiveRecord::Schema.define(version: 2020_09_29_164521) do
     t.text "url"
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.string "commenter"
-    t.string "body"
-    t.string "text"
-    t.integer "article_id", null: false
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["article_id"], name: "index_comments_on_article_id"
   end
 
-  create_table "events", force: :cascade do |t|
-    t.string "title"
-    t.string "date"
-    t.text "location"
-    t.integer "article_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["article_id"], name: "index_events_on_article_id"
-  end
-
-  add_foreign_key "comments", "articles"
-  add_foreign_key "events", "articles"
+  add_foreign_key "comments", "organizations"
+  add_foreign_key "events", "organizations"
 end

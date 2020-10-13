@@ -1,15 +1,15 @@
 class EventsController < ApplicationController
     def create
-        @article = Article.find(params[:article_id])
-        @event = @article.events.create(event_params)
-        redirect_to article_path(@article)
+        @organization = Organization.find(params[:organization_id])
+        @event = @organization.events.create(event_params)
+        redirect_to organization_path(@organization)
     end
 
     def destroy
-        @article = Article.find(params[:article_id])
-        @event = @article.events.find(params[:id])
+        @organization = Organization.find(params[:organization_id])
+        @event = @organization.events.find(params[:id])
         @event.destroy
-        redirect_to article_path(@article)
+        redirect_to organization_path(@organization)
     end
      
     private

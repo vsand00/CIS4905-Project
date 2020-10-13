@@ -1,32 +1,32 @@
 <p>
   <strong>Organization Name:</strong>
-  <%= @article.title %>
+  <%= @organization.title %>
 </p>
  
 <p>
   <strong>Mission Statment:</strong>
-  <%= @article.text %>
+  <%= @organization.text %>
 </p>
 
 <p>
   <strong>Website/Social Media URL:</strong>
-  <%= link_to 'Website/Social Media Page', @article.url %>
+  <%= link_to 'Website/Social Media Page', @organization.url %>
 </p>
  
 <h2>Events</h2>
-<% render @article.events %>
+<%= render @organization.events %>
 
 <h2>Add an event:</h2>
 <%= render 'events/form' %>
 
 <h2>Comments</h2>
-<%= render @article.comments %>
+<%= render @organization.comments %>
  
 <h2>Add a comment:</h2>
 <%= render 'comments/form' %>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %> | 
-<%= link_to 'Delete', article_path(@article),
+<%= link_to 'Edit', edit_organization_path(@organization) %> |
+<%= link_to 'Back', organizations_path %> | 
+<%= link_to 'Delete', organization_path(@organization),
     method: :delete,
     data: { confirm: 'Are you sure?' } %>

@@ -1,0 +1,20 @@
+<h1>Organization Databse</h1>
+
+<%= link_to 'New organization', new_organization_path %> 
+
+<table>
+  <tr>
+    <th>Organization Name</th>
+    <th>Mission Statement</th>
+    <th>Organization Page</th>
+    <th></th>
+  </tr>
+ 
+  <% @organizations.each do |organization| %>
+    <tr>
+      <td><%= organization.title %></td>
+      <td><%= organization.text %></td>
+      <td><%= link_to 'More info', organization_path(organization) %></td>
+    </tr>
+  <% end %>
+</table>
