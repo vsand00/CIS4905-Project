@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
-  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
-
+    skip_before_action :authorized, only: [:index, :show]
+    
     def index
         @organizations = Organization.all
       end

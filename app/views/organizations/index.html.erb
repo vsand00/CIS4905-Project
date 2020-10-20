@@ -1,6 +1,8 @@
 <h1>Organization Databse</h1>
 
-<%= link_to 'New organization', new_organization_path %> 
+<% if logged_in? %>
+  <%= link_to 'New organization', new_organization_path %>
+<% end %>
 
 <table>
   <tr>
@@ -18,3 +20,7 @@
     </tr>
   <% end %>
 </table>
+
+<% if logged_in? %>
+    <%= button_to "Log out", '/logout'%>
+<% end %>
