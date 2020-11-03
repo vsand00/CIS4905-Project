@@ -1,14 +1,13 @@
-<% if logged_in? %>
-    <h1>Local Grassroots Database</h1>    
+<% if logged_in? %>    
     <h1>You are Logged In, <%= current_user.username %></h1>
     <%= link_to 'My Database', controller: 'organizations' %>
     <%= button_to "Log out", '/logout'%>
 <% else %>
     <h1>Welcome</h1>
+    <%= render 'form' %>
     <%= button_to "Login", '/login', method: :get%>
     <%= button_to "Sign Up", '/users/new', method: :get%>
-    <%= link_to 'Continue as Guest', organizations_path %>
-<%end%>
+<% end %>
 
 
 

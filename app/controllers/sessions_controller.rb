@@ -19,7 +19,6 @@ class SessionsController < ApplicationController
   def destroy
     @user = User.find(session[:user_id])
     if logged_in? && @user
-      puts "in the block"
       session[:user_id] = nil
       redirect_to '/welcome'
     end

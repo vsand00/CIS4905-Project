@@ -11,8 +11,10 @@
     <%= event.location %>
 </p>
 
-<p>
-  <%= link_to 'Destroy Event', [event.organization, event],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
+<% if logged_in? %>
+    <p>
+    <%= link_to 'Destroy Event', [event.organization, event],
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+    </p>
+<% end %>

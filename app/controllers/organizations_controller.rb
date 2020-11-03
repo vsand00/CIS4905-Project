@@ -3,11 +3,11 @@ class OrganizationsController < ApplicationController
     
     def index
         @organizations = Organization.all
-      end
+    end
     
     def show
         @organization = Organization.find(params[:id])
-      end
+    end
    
     def new
         @organization = Organization.new
@@ -46,7 +46,7 @@ class OrganizationsController < ApplicationController
     end
        
     private
-        def Organization_params
-          params.require(:organization).permit(:title, :text, :url)
+        def organization_params
+          params.require(:organization).permit(:title, :text, :url, :zipcode)
         end
 end

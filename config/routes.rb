@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'welcome', to: 'sessions#welcome'
   get 'authorized', to: 'sessions#page_requires_login'
-  post 'logout', to: 'sessions#destroy'  
+  post 'logout', to: 'sessions#destroy' 
+  get 'search', to: 'search#index' 
   
   resources :organizations do
     resources :events
