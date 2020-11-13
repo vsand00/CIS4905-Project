@@ -19,16 +19,18 @@
 <h2>Comments</h2>
 <%= render @organization.comments %>
 
+<h2>Add a comment:</h2>
+  <%= render 'comments/form' %>
+
 <% if logged_in? %>
   <h2>Add an event:</h2>
   <%= render 'events/form' %>
-
-  <h2>Add a comment:</h2>
-  <%= render 'comments/form' %>
   
   <%= link_to 'Edit', edit_organization_path(@organization) %> |
-  <%= link_to 'Back', organizations_path %> | 
+  <%= link_to 'Back', organizations_path %> |
   <%= link_to 'Delete', organization_path(@organization),
     method: :delete,
     data: { confirm: 'Are you sure?' } %>
+<% else %>
+    <%= link_to 'Back', 'javascript:history.back()' %>
 <% end %>
