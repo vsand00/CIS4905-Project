@@ -1,14 +1,20 @@
-<% if logged_in? %>    
-    <h1>You are Logged In, <%= current_user.username %></h1>
-    <%= link_to 'My Database', controller: 'organizations' %>
-    <%= button_to "Log out", '/logout'%>
-<% else %>
-    <h1>Welcome</h1>
-    <%= render 'form' %>
-    <%= button_to "Login", '/login', method: :get%>
-    <%= button_to "Sign Up", '/users/new', method: :get%>
-<% end %>
-
-
-
-
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+    </div>
+    <div class="col">
+        <% if logged_in? %>    
+            <h1>You are Logged In, <%= current_user.username %></h1>
+            <%= link_to 'My Database', controller: 'organizations' %>
+            <%= button_to "Log out", '/logout'%>
+        <% else %>
+            <h1>Welcome</h1>
+            <%= render 'form' %>
+            <%= button_to "Login", '/login', method: :get%>
+            <%= button_to "Sign Up", '/users/new', method: :get%>
+        <% end %>
+    </div>
+    <div class="col-2">
+    </div>
+  </div>
+</div>

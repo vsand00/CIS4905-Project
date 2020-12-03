@@ -13,3 +13,11 @@
  */
 
  @import 'bootstrap-custom';
+
+ @import 'colors';
+ @use 'colors';
+
+body{
+    background-color: #e8ded2;
+}
+ 

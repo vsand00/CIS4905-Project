@@ -1,23 +1,24 @@
 <h1>Local Grassroots Database</h1>
 
-<table>
-  <tr>
-    <th>Organization Name</th>
-    <th>Zipcode</th>
-    <th>Miles Away</th>
-    <th>Organization Page</th>
-    <th></th>
-  </tr>
-  
-  <% @org_results.each do |organization| %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Organization Name</th>
+      <th scope="col">Zipcode</th>
+      <th scope="col">Miles Away</th>
+      <th scope="col">Organization Page</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @org_results.each do |organization| %>
     <tr>
       <td><%= organization.title %></td>
       <td><%= organization.text %></td>
       <td><%= find_distance(organization) %></td>
       <td><%= link_to 'More info', organization_path(organization) %></td>
     </tr>
-  <% end %>
-  
+    <% end %>
+  </tbody>
 </table>
 
 <%= button_to "Back to Welcome", '/welcome', method: :get %>

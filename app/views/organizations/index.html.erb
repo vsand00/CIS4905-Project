@@ -4,22 +4,25 @@
   <%= link_to 'New organization', new_organization_path %>
 <% end %>
 
-<table>
-  <tr>
-    <th>Organization Name</th>
-    <th>Mission Statement</th>
-    <th>Organization Page</th>
-    <th></th>
-  </tr>
- 
-  <% @organizations.each do |organization| %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Organization Name</th>
+      <th scope="col">Mission Statement</th>
+      <th scope="col">Organization Page</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @organizations.each do |organization| %>
     <tr>
       <td><%= organization.title %></td>
       <td><%= organization.text %></td>
       <td><%= link_to 'More info', organization_path(organization) %></td>
     </tr>
-  <% end %>
+    <% end %>
+  </tbody>
 </table>
+
 
 <% if logged_in? %>
     <%= button_to "Log out", '/logout'%>
