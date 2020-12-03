@@ -4,6 +4,10 @@
     </div>
     <div class="col">
       <h1>Login</h1>
+      <div class="row search-form-container">
+        <div class="col-2">
+        </div>
+        <div class="col-8">
          <%= form_tag '/login' do %>
          <div class="row">
          <%= label_tag :username%>
@@ -13,10 +17,14 @@
          <%= label_tag :password%>
          <%= password_field_tag :password%>
          </div>
-         <%= submit_tag "Login"%>
+         <div class="col-2">
+        </div>
+         </div>
+         </div>
+         <%= submit_tag("Login", :class=>"btn btn-outline-dark")%>
       <%end%>
        
-      <%= button_to "Back to Welcome", '/welcome', method: :get %>
+      <%= button_to "Back to Welcome", '/welcome', method: :get, :class=>"btn btn-outline-dark" %>
    </div>
    <div class="col-4">
    </div>

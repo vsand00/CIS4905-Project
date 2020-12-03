@@ -1,5 +1,9 @@
-<div class="container">
-  <%= form_tag search_path, method: "get" do =%>
+<div class="container search-form-container">
+  <div class="row">
+    <div class="col-2">
+    </div>
+    <div class="col-8">
+    <%= form_tag search_path, method: "get" do =%>
     <div class="row">
     <%= label_tag(:zip_code, "Zip-code: ") %>
     <%= text_field_tag(:zip_code) %>
@@ -8,6 +12,10 @@
     <%= label_tag(:radius, "Radius: ") %>
     <%= text_field_tag(:radius) %>
     </div>
-  <%= submit_tag("Search") %>
+  <%= submit_tag("Search", :class=>"btn btn-outline-dark")%>
   <% end %>
+  </div>
+  <div class="col-2">
+  </div>
+  </div> 
 </div>

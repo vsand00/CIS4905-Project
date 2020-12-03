@@ -1,37 +1,39 @@
-<%= form_with model: @organization, local: true do |form| %>
- 
-  <% if @organization.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@organization.errors.count, "error") %> prohibited
-        this organization from being saved:
-      </h2>
-      <%= render :partial => 'shared/flash_messages' %>
+<div class="container search-form-container">
+  <div class="row">
+    <div class="col-2">
     </div>
-  <% end %>
-  
-  <p>
+    <div class="col-8">
+    <%= form_with model: @organization, local: true do |form| %>
+ 
+      <% if @organization.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@organization.errors.count, "error") %> prohibited
+            this organization from being saved:
+          </h2>
+          <%= render :partial => 'shared/flash_messages' %>
+        </div>
+      <% end %>
+    <div class="row">
     <%= form.label :'Organization Name' %><br>
     <%= form.text_field :title %>
-  </p>
- 
-  <p>
+    </div>
+    <div class="row">
     <%= form.label :'Mission Statement' %><br>
     <%= form.text_field :text %>
-  </p>
-
-  <p>
+    </div>
+    <div class="row">
     <%= form.label :'Website URL' %><br>
     <%= form.text_field :url %>
-  </p>
- 
-  <p>
+    </div>
+    <div class="row">
     <%= form.label :'Zipcode' %><br>
     <%= form.text_field :zipcode %>
-</p>
-
-  <p>
-    <%= form.submit %>
-  </p>
- 
-<% end %>
+    </div>
+  <%= form.submit("Create Organization", :class=>"btn btn-outline-dark")%>
+  <% end %>
+  </div>
+  <div class="col-2">
+  </div> 
+  </div>
+</div>
