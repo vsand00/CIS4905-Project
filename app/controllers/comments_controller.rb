@@ -1,4 +1,7 @@
-class CommentsController < ApplicationController    
+class CommentsController < ApplicationController 
+    
+  skip_before_action :authorized, only: [:create]
+
     def create
       @organization = Organization.find(params[:organization_id])
       @comment = @organization.comments.create(comment_params)

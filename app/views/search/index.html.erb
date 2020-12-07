@@ -13,7 +13,7 @@
     <% @org_results.each do |organization| %>
     <tr>
       <td><%= organization.title %></td>
-      <td><%= organization.text %></td>
+      <td><%= organization.zipcode %></td>
       <td><%= find_distance(organization) %></td>
       <td><%= link_to 'More info', organization_path(organization) %></td>
     </tr>
