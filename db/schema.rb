@@ -13,9 +13,9 @@
 ActiveRecord::Schema.define(version: 2020_10_29_151527) do
 
   create_table "comments", force: :cascade do |t|
-    t.string "commenter"
-    t.string "body"
-    t.string "text"
+    t.text "commenter"
+    t.text "body"
+    t.text "text"
     t.integer "organization_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2020_10_29_151527) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "title"
-    t.string "date"
+    t.text "title"
+    t.text "date"
     t.text "location"
     t.integer "organization_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -33,17 +33,17 @@ ActiveRecord::Schema.define(version: 2020_10_29_151527) do
   end
 
   create_table "organizations", force: :cascade do |t|
-    t.string "title"
+    t.text "title"
     t.text "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "url"
-    t.string "zipcode"
+    t.text "zipcode"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
+    t.text "username"
+    t.text "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
