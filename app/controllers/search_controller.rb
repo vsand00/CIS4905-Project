@@ -7,7 +7,7 @@ class SearchController < ApplicationController
         @zip_code = params[:zip_code]
         @radius = params[:radius]
         
-        api_key = "73MAhuPNVg6hkZ7AQFlRqnMbfmV8cT4gapT60EXgszTNNDTd0MEnwfoz31jbqqb8"
+        api_key = "2nAkj6oACd21mLOwGFuAeMg1pa6nTSdYI4qPekfM6uJgz0vPy6EnbaXNOSe0bTkD"
         url = "https://www.zipcodeapi.com/rest/#{api_key}/radius.json/#{@zip_code}/#{@radius}/miles"
         #query here
         response = HTTParty.get(url)
